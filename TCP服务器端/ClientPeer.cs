@@ -140,16 +140,19 @@ namespace TCP服务器端
         //        Close();
         //    }
         //}
-       public void OnProcessMessage(RequestCode requestCode, ActionCode actionCode, byte[] data)
+       public void OnProcessMessage(RequestCode requestCode, ActionCode actionCode,byte[] data)
         {
             Console.WriteLine("接受数据");
             Console.WriteLine(string.Format("接受到客户端的数据：RequestCode:{0};" +
                                             "ActionCode:{1};Data:{2}",
                                             requestCode, actionCode, Message.ProtoBufDataDeSerialize<string>(data)));
             //server.HandleRequest(requestCode, actionCode, data, this);
-        }        /// <summary>
-                 /// 关闭会话
-                 /// </summary>
+        }
+        
+          
+        /// <summary>
+        /// 关闭会话
+        /// </summary>
         public void Close()
         {
             try
@@ -183,7 +186,7 @@ namespace TCP服务器端
 
         public  void SendResponse(ActionCode actionCode, byte[] data)
         {
-            Send(actionCode, data);
+            Send(actionCode, data); 
         }
         public  void Send(ActionCode actionCode, byte[] data)
         {

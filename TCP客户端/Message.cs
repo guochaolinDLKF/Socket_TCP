@@ -76,13 +76,12 @@ namespace TCP客户端
         /// <summary>
         /// 读取数据
         /// </summary>
-        public void ReadMessage(int newDataAmount, bool connected)
+        public void ReadMessage(int newDataAmount)
         {
             try
             {
-                if (newDataAmount > 0 && connected)
+                if (newDataAmount > 0)
                 {
-                    //mBufferList.Clear();
                     lock (mBufferList)
                     {
                         mBufferList.AddRange(data);
@@ -120,8 +119,6 @@ namespace TCP客户端
                 Console.WriteLine(xe);
             }
         }
-
-        private List<byte> ParsedDataList = new List<byte>();
         /// <summary>
         /// 解析数据
         /// </summary>
@@ -133,32 +130,6 @@ namespace TCP客户端
             {
                 ParsedDataPacker(receiveData.ActionCode, receiveData.DataList);
             }
-
-
-            //lock (ParsedDataList)
-            //{
-            //    ParsedDataList.AddRange(data);
-            //}
-            //try
-            //{
-            //    if (ParsedDataPacker != null)
-            //    {
-            //        byte[] actionBytes = ParsedDataList.GetRange(0, 4).ToArray();
-            //        byte[] dataBytes = ParsedDataList.GetRange(4, ParsedDataList.Count - 4).ToArray();
-
-
-            //        ActionCode actionCode = (ActionCode)BitConverter.ToInt32(actionBytes, 0);
-            //        ParsedDataPacker(actionCode, Encoding.UTF8.GetString(dataBytes)); 
-            //    }
-            //    ParsedDataList.Clear();
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e);
-            //}
-
-
-
         }
 
 

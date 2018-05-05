@@ -11,3 +11,10 @@ E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\�
 E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\TCP客户端\obj\Debug\TCP客户端.exe
 E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\TCP客户端\obj\Debug\TCP客户端.pdb
 E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\TCP客户端\bin\Debug\protobuf-net.dll
+E:\xgProject\Socket_TCP\TCP客户端\bin\Debug\TCP客户端.exe.config
+E:\xgProject\Socket_TCP\TCP客户端\bin\Debug\TCP客户端.exe
+E:\xgProject\Socket_TCP\TCP客户端\bin\Debug\TCP客户端.pdb
+E:\xgProject\Socket_TCP\TCP客户端\bin\Debug\protobuf-net.dll
+E:\xgProject\Socket_TCP\TCP客户端\obj\Debug\TCP客户端.csprojResolveAssemblyReference.cache
+E:\xgProject\Socket_TCP\TCP客户端\obj\Debug\TCP客户端.exe
+E:\xgProject\Socket_TCP\TCP客户端\obj\Debug\TCP客户端.pdb

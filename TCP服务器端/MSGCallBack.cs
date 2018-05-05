@@ -29,4 +29,18 @@ namespace TCP服务器端
         [ProtoMember(3)]
         public byte[] DataList; 
     }
+
+    //[ProtoContract]
+    //class UserModel
+    //{ 
+    //     public UserModel() { }
+
+    //    public UserModel(string uname, string pword)
+    //    {
+    //        UName = uname;
+    //        PWord
+    //    }
+    //    public string UName { get ; set; }
+    //    public string PWord { get; set; }
+    //}
 }

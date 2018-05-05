@@ -125,7 +125,6 @@ namespace TCP服务器端
         {
            
             MSGCallBack ReceiveMsg = ProtoBufDataDeSerialize<MSGCallBack>(data);
-            Console.WriteLine(ParsedDataObjPacker != null);
             if (ParsedDataObjPacker != null)
             {
                 ParsedDataObjPacker(ReceiveMsg.RequestCode, ReceiveMsg.ActionCode, ReceiveMsg.DataList);

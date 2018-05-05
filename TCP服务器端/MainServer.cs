@@ -121,13 +121,8 @@ namespace TCP服务器端
                 {
                     Socket server = (Socket)ar.AsyncState;
                     Socket clientSocket = server.EndAccept(ar);
-                    if (mClientCount >= mMaxClient)
+                    if (mClientCount <= mMaxClient)
                     {
-
-                    }
-                    else
-                    {
-
                         client = new ClientPeer(clientSocket, this);
                         lock (mClientList)
                         {
@@ -141,6 +136,11 @@ namespace TCP服务器端
                         //开始接受来自该客户端的数据 
                         clientSocket.BeginReceive(client.RecvDataBuffer, 0, client.RecvDataBuffer.Length, SocketFlags.None,
                          new AsyncCallback(HandleDataReceived), client);
+                        mServerSock.BeginAccept(new AsyncCallback(AcceptCallBack), mServerSock);
+                    }
+                    else
+                    {
+                        Console.WriteLine("服务器爆满");
                     }
                 }
             }
@@ -186,7 +186,7 @@ namespace TCP服务器端
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine("一个客户端断开连接:" + e);
+                    Console.WriteLine("一个客户端断开连接:");
                     Close(state);
                 }
             }

@@ -13,3 +13,12 @@ E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\�
 E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\TCP服务器端\bin\Debug\Common.pdb
 E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\TCP服务器端\obj\Debug\TCP服务器端.csprojResolveAssemblyReference.cache
 E:\ProjectDir\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\直接利用Socket TCP开发网络游戏 - CSharp（Unity5.6）\TCP服务器端\bin\Debug\protobuf-net.dll
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\TCP服务器端.exe.config
+E:\xgProject\Socket_TCP\TCP服务器端\obj\Debug\TCP服务器端.exe
+E:\xgProject\Socket_TCP\TCP服务器端\obj\Debug\TCP服务器端.pdb
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\TCP服务器端.exe
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\TCP服务器端.pdb
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\Common.dll
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\protobuf-net.dll
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\Common.pdb
+E:\xgProject\Socket_TCP\TCP服务器端\obj\Debug\TCP服务器端.csprojResolveAssemblyReference.cache
