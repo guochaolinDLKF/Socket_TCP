@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace TCP客户端
 {
-    class ClientManager:IDisposable
+    class ClientManager : IDisposable
     {
         private const string IP = "127.0.0.1";
         private const int PORT = 8866;
@@ -17,37 +17,32 @@ namespace TCP客户端
         public Socket clientSocket;
         private Message msg = new Message();
         private IPEndPoint ipEndP;
-       
+
         public ClientManager()
         {
-            ipEndP=new IPEndPoint(IPAddress.Parse(IP), PORT);
-            msg.ParsedDataPacker += OnProcessDataCallback; 
+            ipEndP = new IPEndPoint(IPAddress.Parse(IP), PORT);
+            msg.ParsedDataPacker += OnProcessDataCallback;
             clientSocket = new Socket(ipEndP.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-            msg.mBufferList=new List<byte>();
+            msg.mBufferList = new List<byte>();
         }
 
         public void Connect()
         {
-            try
-            {
-                clientSocket.BeginConnect(ipEndP,(delegate(IAsyncResult ar)
-                {
-                    clientSocket.EndConnect(ar);
-                    if (ar.AsyncWaitHandle.WaitOne(5000))
-                    {
-                        Thread th=new Thread(new ThreadStart(StartReceive));
-                        th.IsBackground = true;
-                        th.Start();
+
+            clientSocket.BeginConnect(ipEndP, (delegate (IAsyncResult ar)
+             {
+                 clientSocket.EndConnect(ar);
+                 if (ar.AsyncWaitHandle.WaitOne(5000))
+                 {
+                     Thread th = new Thread(new ThreadStart(StartReceive));
+                     th.IsBackground = true;
+                     th.Start();
                         //StartReceive();
                     }
-                }),clientSocket);
-                
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("无法连接到服务器端，请检查您的网络！！" + e);
-            }
-        } 
+             }), clientSocket);
+
+
+        }
         private void StartReceive()
         {
             clientSocket.BeginReceive(msg.Data, msg.StartIndex, msg.RemainSize, SocketFlags.None, ReceiveCallback, null);
@@ -57,7 +52,7 @@ namespace TCP客户端
             try
             {
                 if (clientSocket == null || clientSocket.Connected == false) return;
-                
+
                 if (ar.AsyncWaitHandle.WaitOne(5000))
                 {
                     int count = clientSocket.EndReceive(ar);
@@ -67,7 +62,7 @@ namespace TCP客户端
                     th.IsBackground = true;
                     th.Start();
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -76,7 +71,7 @@ namespace TCP客户端
         }
         private void OnProcessDataCallback(ActionCode actionCode, byte[] data)
         {
-            Console.WriteLine(string.Format("接受到服务器的数据：ActionCode:{0};Data:{1}", actionCode,Message.ProtoBufDataDeSerialize<string>(data)));
+            Console.WriteLine(string.Format("接受到服务器的数据：ActionCode:{0};Data:{1}", actionCode, Message.ProtoBufDataDeSerialize<string>(data)));
             //facade.HandleReponse(actionCode, data);
         }
         public void SendRequest(RequestCode requestCode, ActionCode actionCode, byte[] data)
@@ -89,7 +84,7 @@ namespace TCP客户端
         {
             try
             {
-                msg.ParsedDataPacker -= OnProcessDataCallback; 
+                msg.ParsedDataPacker -= OnProcessDataCallback;
                 clientSocket.Close();
             }
             catch (Exception e)
