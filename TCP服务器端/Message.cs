@@ -1,4 +1,5 @@
 ﻿using Common;
+using LitJson;
 using ProtoBuf;
 using System;
 using System.Collections.Generic;
@@ -133,13 +134,14 @@ namespace TCP服务器端
 
         public static byte[] PackData(ActionCode actionCode, byte[] data)
         {
-            MSGCallBack sendData = new MSGCallBack(actionCode, data);
-            byte[] dataBytes = ProtoBufDataSerialize(sendData);
-            //byte[] requestCodeBytes = BitConverter.GetBytes((int)actionCode);
+            //MSGCallBack sendData = new MSGCallBack(actionCode);
+            //byte[] dataBytes = ProtoBufDataSerialize(sendData);
+            byte[] actionCodeBytes = BitConverter.GetBytes((int)actionCode); 
             //byte[] dataBytes = Encoding.UTF8.GetBytes(data);
-            int dataAmount = dataBytes.Length;
+            int dataAmount = actionCodeBytes.Length+ data.Length;
             byte[] dataAmountBytes = BitConverter.GetBytes(dataAmount);
-            return dataAmountBytes.Concat(dataBytes).ToArray<byte>();
+            return dataAmountBytes.Concat(actionCodeBytes).ToArray<byte>()
+                .Concat(data).ToArray<byte>(); 
         }
 
 
@@ -201,6 +203,14 @@ namespace TCP服务器端
             //    return Serializer.Deserialize<T>(ms);
             //}
 
+        }
+        public static string JSONDataSerialize(object data)
+        {
+            return JsonMapper.ToJson(data);
+        }
+        public static T JSONDataDeSerialize<T>(string data)
+        {
+            return JsonMapper.ToObject<T>(data);
         }
     }
 }

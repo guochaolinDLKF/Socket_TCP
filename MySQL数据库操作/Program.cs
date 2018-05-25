@@ -32,7 +32,7 @@ namespace MySQL数据库操作
             #endregion
 
             #region 插入
-            //string username = "cwer";string password = "lcker';delete from user;";
+            //string username = "cwer"; string password = "lcker';delete from user;";
             ////MySqlCommand cmd = new MySqlCommand("insert into user set username ='" + username + "'" + ",password='" + password + "'", conn);
             //MySqlCommand cmd = new MySqlCommand("insert into user set username=@un , password = @pwd", conn);
 
@@ -50,8 +50,9 @@ namespace MySQL数据库操作
             #endregion
 
             #region 更新
-            MySqlCommand cmd = new MySqlCommand("update user set password = @pwd where id = 14", conn);
+            MySqlCommand cmd = new MySqlCommand("update user set password = @pwd ，username = @un where id = 14", conn);
             cmd.Parameters.AddWithValue("pwd", "sikiedu.com");
+            cmd.Parameters.AddWithValue("un", "1646");
 
             cmd.ExecuteNonQuery();
             #endregion

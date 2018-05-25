@@ -22,3 +22,4 @@ E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\Common.dll
 E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\protobuf-net.dll
 E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\Common.pdb
 E:\xgProject\Socket_TCP\TCP服务器端\obj\Debug\TCP服务器端.csprojResolveAssemblyReference.cache
+E:\xgProject\Socket_TCP\TCP服务器端\bin\Debug\LitJSON.dll

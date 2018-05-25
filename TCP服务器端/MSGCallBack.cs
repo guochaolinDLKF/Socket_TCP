@@ -11,16 +11,14 @@ namespace TCP服务器端
     class MSGCallBack
     {
         public MSGCallBack() { }
-        public MSGCallBack(RequestCode request, ActionCode action, byte[] dataList)
+        public MSGCallBack(RequestCode request, ActionCode action)
         {
             RequestCode = request;
             ActionCode = action;
-            DataList = dataList;
         }
-        public MSGCallBack(ActionCode action, byte[] dataList)
+        public MSGCallBack(ActionCode action)
         {
             ActionCode = action;
-            DataList = dataList;
         }
         [ProtoMember(1)]
         public RequestCode RequestCode { get; set; }
@@ -30,17 +28,17 @@ namespace TCP服务器端
         public byte[] DataList; 
     }
 
-    //[ProtoContract]
-    //class UserModel
-    //{ 
-    //     public UserModel() { }
+    [ProtoContract]
+    class UserModel
+    {
+        public UserModel() { }
 
-    //    public UserModel(string uname, string pword)
-    //    {
-    //        UName = uname;
-    //        PWord
-    //    }
-    //    public string UName { get ; set; }
-    //    public string PWord { get; set; }
-    //}
+        public UserModel(string uname, string pword)
+        {
+            UName = uname;
+            PWord = pword;
+        }
+        public string UName { get; set; }
+        public string PWord { get; set; }
+    }
 }
